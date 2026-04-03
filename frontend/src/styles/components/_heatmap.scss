@@ -1,0 +1,45 @@
+.heatmap {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 20px;
+    background: #2a1414;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 77, 90, 0.3);
+    position: relative;
+
+  
+    h3 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .heatmap__tooltip {
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+      
+        background: #1a0f0f;
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: 1px solid #ff4d5a;
+        font-size: 12px;
+      }
+  }
+  
+  .heatmap__grid {
+    display: grid;
+    grid-template-columns: repeat(52, 14px); // fixed width
+    grid-auto-rows: 14px;
+    gap: 4px;
+    justify-content: start;
+  }
+  
+  .heatmap__cell {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    background: #3a1f1f;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05); // 🔥 THIS FIX
+  }

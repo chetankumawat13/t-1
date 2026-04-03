@@ -1,0 +1,30 @@
+.stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .stats__card {
+    flex: 1;
+    background: #2a1414;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 77, 90, 0.2);
+    transition: 0.3s;
+  
+    p {
+      color: #cfcfcf;
+      font-size: 14px;
+    }
+  
+    h2 {
+      margin-top: 10px;
+      font-size: 22px;
+      color: white;
+    }
+  
+    &:hover {
+      border: 1px solid #ff4d5a;
+      transform: translateY(-3px);
+    }
+  }

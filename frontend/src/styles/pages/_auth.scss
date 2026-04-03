@@ -1,0 +1,98 @@
+.auth {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    background: linear-gradient(135deg, #1a0f0f, #2b1414);
+  }
+  
+  .auth__box {
+    width: 350px;
+    padding: 30px;
+    border-radius: 12px;
+    background: #2a1414;
+    border: 1px solid rgba(255, 77, 90, 0.3);
+    text-align: center;
+  }
+  
+  .auth__logo {
+    color: #ff4d5a;
+    margin-bottom: 10px;
+  }
+  
+  .auth__title {
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .auth__form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: #1a0f0f;
+      color: #fff;
+    }
+  
+    button {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #ff4d5a;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+  
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  
+  .auth__switch {
+    margin-top: 15px;
+    color: #cfcfcf;
+  
+    a {
+      color: #ff4d5a;
+      text-decoration: none;
+    }
+  }
+
+  .toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    z-index: 999;
+  
+    animation: slideIn 0.3s ease;
+  }
+  
+  .toast--success {
+    background: #2ecc71;
+  }
+  
+  .toast--error {
+    background: #ff4d5a;
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }

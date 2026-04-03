@@ -1,0 +1,87 @@
+.timeline {
+    margin-top: 30px;
+    padding: 20px;
+    background: #2a1414;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 77, 90, 0.2);
+  
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+  
+      h3 {
+        color: #fff;
+        font-size: 16px;
+      }
+    }
+  
+    &__filter {
+      background: #ff4d5a;
+      color: #fff;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+  
+    &__chart {
+      width: 100%;
+      height: 320px;
+      margin-top: 10px; // 🔥 gap fix (top spacing)
+    }
+  }
+
+  .timeline__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+  }
+  
+  .legend__item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .legend__color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  
+  .legend__text {
+    font-size: 12px;
+    color: #cfcfcf;
+  }
+  
+  /* tooltip */
+  
+  .custom-tooltip {
+    background: #1a0f0f;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ff4d5a;
+  }
+  
+  .tooltip-date {
+    font-size: 12px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  
+  .tooltip-item {
+    display: flex;
+    gap: 6px;
+    font-size: 12px;
+    color: #cfcfcf;
+  }
+  
+  .tooltip-color {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }

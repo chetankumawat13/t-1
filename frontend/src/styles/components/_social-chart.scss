@@ -1,0 +1,35 @@
+.social-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  
+    &__graph {
+      width: 100%;
+    }
+  
+    &__legend {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
+  }
+  
+  .legend__item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .legend__color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  
+  .legend__text {
+    color: #cfcfcf;
+    font-size: 12px;
+  }

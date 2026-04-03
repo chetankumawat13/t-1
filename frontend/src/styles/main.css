@@ -1,0 +1,389 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+}
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.dashboard__sidebar {
+  width: 250px;
+  background: #2a1414;
+  padding: 20px;
+  border-right: 1px solid rgba(255, 77, 90, 0.2);
+}
+
+.dashboard__main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: #1a0f0f;
+}
+
+.dashboard__sidebar {
+  width: 250px;
+  background: #2a1414;
+  height: 100vh;
+  padding: 20px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar__profile {
+  text-align: center;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background: #ff4d5a;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.streak {
+  color: #ff4d5a;
+}
+
+.nav-btn {
+  padding: 10px;
+  border: 1px solid #ff4d5a;
+  background: transparent;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+.header .tagline {
+  color: #cfcfcf;
+  font-size: 14px;
+}
+.header h1 {
+  font-size: 24px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.filters button {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid #ff4d5a;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.stats__card {
+  flex: 1;
+  background: #2a1414;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 77, 90, 0.2);
+  transition: 0.3s;
+}
+.stats__card p {
+  color: #cfcfcf;
+  font-size: 14px;
+}
+.stats__card h2 {
+  margin-top: 10px;
+  font-size: 22px;
+  color: white;
+}
+.stats__card:hover {
+  border: 1px solid #ff4d5a;
+  transform: translateY(-3px);
+}
+
+.graphs {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.graphs__box {
+  flex: 1;
+  background: #2a1414;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 77, 90, 0.2);
+}
+.graphs__box h3 {
+  margin-bottom: 10px;
+}
+
+.social-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.social-chart__graph {
+  width: 100%;
+}
+.social-chart__legend {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.legend__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend__color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend__text {
+  color: #cfcfcf;
+  font-size: 12px;
+}
+
+.timeline {
+  margin-top: 30px;
+  padding: 20px;
+  background: #2a1414;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 77, 90, 0.2);
+}
+.timeline__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.timeline__header h3 {
+  color: #fff;
+  font-size: 16px;
+}
+.timeline__filter {
+  background: #ff4d5a;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.timeline__chart {
+  width: 100%;
+  height: 320px;
+  margin-top: 10px;
+}
+
+.timeline__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.legend__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend__color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend__text {
+  font-size: 12px;
+  color: #cfcfcf;
+}
+
+/* tooltip */
+.custom-tooltip {
+  background: #1a0f0f;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ff4d5a;
+}
+
+.tooltip-date {
+  font-size: 12px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.tooltip-item {
+  display: flex;
+  gap: 6px;
+  font-size: 12px;
+  color: #cfcfcf;
+}
+
+.tooltip-color {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.heatmap {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 20px;
+  background: #2a1414;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 77, 90, 0.3);
+  position: relative;
+}
+.heatmap h3 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+.heatmap .heatmap__tooltip {
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  background: #1a0f0f;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ff4d5a;
+  font-size: 12px;
+}
+
+.heatmap__grid {
+  display: grid;
+  grid-template-columns: repeat(52, 14px);
+  grid-auto-rows: 14px;
+  gap: 4px;
+  justify-content: start;
+}
+
+.heatmap__cell {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: #3a1f1f;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.auth {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a0f0f, #2b1414);
+}
+
+.auth__box {
+  width: 350px;
+  padding: 30px;
+  border-radius: 12px;
+  background: #2a1414;
+  border: 1px solid rgba(255, 77, 90, 0.3);
+  text-align: center;
+}
+
+.auth__logo {
+  color: #ff4d5a;
+  margin-bottom: 10px;
+}
+
+.auth__title {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.auth__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.auth__form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #1a0f0f;
+  color: #fff;
+}
+.auth__form button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #ff4d5a;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.auth__form button:hover {
+  opacity: 0.8;
+}
+
+.auth__switch {
+  margin-top: 15px;
+  color: #cfcfcf;
+}
+.auth__switch a {
+  color: #ff4d5a;
+  text-decoration: none;
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  z-index: 999;
+  animation: slideIn 0.3s ease;
+}
+
+.toast--success {
+  background: #2ecc71;
+}
+
+.toast--error {
+  background: #ff4d5a;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}/*# sourceMappingURL=main.css.map */
