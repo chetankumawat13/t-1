@@ -57,7 +57,7 @@ const Login = () => {
       )}
 
       <div className="auth__box">
-        <h1 className="auth__logo">AI-MIND</h1>
+        <h1 className="auth__logo">AI-SKETCH</h1>
         <h2 className="auth__title">Login</h2>
 
         <form className="auth__form" onSubmit={handleLogin}>
