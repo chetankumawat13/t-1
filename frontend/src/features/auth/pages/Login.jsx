@@ -1,74 +1,55 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { loginApi } from "../services/auth.api";
 
 const Login = () => {
   const navigate = useNavigate();
 
-  // ✅ ALL STATES ANDAR AAYENGE
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState(null);
-  const [error, setError] = useState("");
 
-  // 🔥 Already logged-in check
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      navigate("/");
-    }
-  }, [navigate]);
-
-  // 🔥 Toast function
   const showToast = (message, type) => {
     setToast({ message, type });
-
-    setTimeout(() => {
-      setToast(null);
-    }, 2000);
+    setTimeout(() => setToast(null), 2000);
   };
 
-  // 🔥 Login Handler
   const handleLogin = async (e) => {
     e.preventDefault();
-  
-    // 🔥 reset error
-    setError("");
-  
+
     if (!email || !password) {
-      setError("Please fill all fields");
+      showToast("Please fill all fields", "error");
       return;
     }
-  
+
     try {
       setLoading(true);
-  
-      const data = await loginApi({ email, password });
-  
-      localStorage.setItem("token", data.token);
-  
+
+      await loginApi({ email, password });
+
+      // ❌ REMOVE THIS
+      // localStorage.setItem("token", data.token);
+
       showToast("Login Successful 🎉", "success");
-  
+
       setTimeout(() => {
         navigate("/");
       }, 1200);
-  
-    }catch (err) {
-        const message =
-          err.response?.data?.message || "Invalid email or password";
-      
-        showToast(message, "error"); 
-      }
-       finally {
+
+    } catch (err) {
+      const message =
+        err.response?.data?.message || "Invalid email or password";
+
+      showToast(message, "error");
+
+    } finally {
       setLoading(false);
     }
   };
 
   return (
     <div className="auth">
-
-      {/* 🔥 TOAST UI YAHAN AAYEGA */}
       {toast && (
         <div className={`toast toast--${toast.type}`}>
           {toast.message}

@@ -12,13 +12,17 @@ authRouter.post('/register', registerController);
 authRouter.post('/login', loginController);
 
 // api/auth/logout
-authRouter.post('/logout', (req,res)=>{
-    res.clearCookie('token');
+authRouter.post('/logout', (req, res) => {
+    res.clearCookie("token", {
+      httpOnly: true,
+      sameSite: "lax",
+    });
+  
     res.status(200).json({
-        success:true,
-        message:"User logged out successfully"
-    })
-})
+      success: true,
+      message: "User logged out successfully",
+    });
+  });
 
 // api/auth/getUser
 

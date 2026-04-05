@@ -1,3 +1,5 @@
+import { Outlet, useLocation } from "react-router-dom";
+
 import Sidebar from "../features/analytics/components/Sidebar";
 import Header from "../features/analytics/components/Header";
 import StatsCards from "../features/analytics/components/StatsCards";
@@ -6,66 +8,81 @@ import GraphSection from "../features/analytics/components/GraphSection";
 import TimelineChart from "../features/analytics/components/TimelineChart";
 import Heatmap from "../features/analytics/components/Heatmap";
 
-import { useState } from "react";
-import { useItems } from "../features/items/hooks/useItems";
-import applyFilters from "../features/analytics/utils/filterItems";
+import { useAnalytics } from "../features/analytics/hooks/useAnalytics";
 
 const Dashboard = () => {
-  const { items = [], loading } = useItems(); // ✅ FIX 1
+  const location = useLocation();
 
-  const [timeFilter, setTimeFilter] = useState("all");
-  const [tagFilter, setTagFilter] = useState("all");
-  const [socialFilter, setSocialFilter] = useState("all");
+  // 🔥 Home detect
+  const isHome = location.pathname === "/";
 
-  // ✅ FIX 2: safe flatMap
-  const allTags = Array.from(
-    new Set((items || []).flatMap((item) => item.tags || []))
-  );
+  const {
+    loading,
 
-  // ✅ FIX 3: safe mapping
-  const allSocials = Array.from(
-    new Set(
-      (items || []).map((item) => {
-        if (item.url?.includes("youtube")) return "YouTube";
-        if (item.url?.includes("instagram")) return "Instagram";
-        if (item.url?.includes("twitter")) return "Twitter";
-        return "Other";
-      })
-    )
-  );
+    // filters
+    setTime,
+    setTag,
+    setSocial,
 
-  // ✅ FIX 4: safe filter call
-  const filteredItems = applyFilters(
-    items || [],
-    timeFilter,
-    tagFilter,
-    socialFilter
-  );
-
-  // ✅ OPTIONAL: loading UI
-  if (loading) return <p>Loading dashboard...</p>;
+    // data
+    stats,
+    tags,
+    socials,
+    tagsData,
+    socialData,
+    timelineData,
+    heatmapData,
+  } = useAnalytics();
 
   return (
     <div className="dashboard">
-      {/* LEFT */}
+
+      {/* 🔥 LEFT SIDEBAR (ALWAYS SAME) */}
       <Sidebar />
 
-      {/* RIGHT */}
+      {/* 🔥 RIGHT SIDE */}
       <div className="dashboard__main">
+
+        {/* 🔥 HEADER (ALWAYS SAME) */}
         <Header />
 
-        <Filters
-          onTimeChange={setTimeFilter}
-          onTagChange={setTagFilter}
-          onSocialChange={setSocialFilter}
-          tags={allTags}
-          socials={allSocials}
-        />
+        {/* 🔥 HOME PAGE (Analytics) */}
+        {isHome && (
+          <>
+            {loading ? (
+              <p style={{ color: "white" }}>Loading dashboard...</p>
+            ) : (
+              <>
+                <Filters
+                  onTimeChange={setTime}
+                  onTagChange={setTag}
+                  onSocialChange={setSocial}
+                  tags={tags}
+                  socials={socials}
+                />
 
-        <StatsCards items={filteredItems} /> {/* 🔥 pass filtered data */}
-        <GraphSection items={filteredItems} />
-        <TimelineChart items={filteredItems} />
-        <Heatmap /> {/* heatmap already internally fetch kar raha hai */}
+                <StatsCards stats={stats} />
+
+                <GraphSection
+                  tagsData={tagsData}
+                  socialData={socialData}
+                />
+
+                <TimelineChart data={timelineData} />
+
+                <Heatmap data={heatmapData} />
+              </>
+            )}
+          </>
+        )}
+
+        {/* 🔥 OTHER PAGES (All Saves / Deleted) */}
+        {!isHome && (
+          <div className="dashboard__content">
+            <Outlet />
+          </div>
+        )}
+
       </div>
     </div>
   );

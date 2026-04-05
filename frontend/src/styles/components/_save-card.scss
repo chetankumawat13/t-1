@@ -1,0 +1,144 @@
+/* 🔥 GRID CONTAINER */
+.saves-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* 🔥 CARD */
+  .save-card {
+    background: #1c1c1c;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 77, 90, 0.15);
+    transition: all 0.25s ease;
+    cursor: pointer;
+  
+    &:hover {
+      transform: translateY(-6px);
+      border-color: $primary;
+    }
+  
+    /* 🔥 IMAGE */
+    &__img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+  
+    /* 🔥 BODY */
+    &__body {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+  
+  /* 🔥 HOT TAG */
+  .hot-tag {
+    align-self: flex-start;
+    background: $primary;
+    color: #fff;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+  
+  /* 🔥 TITLE */
+  .title {
+    font-size: 13px;
+    color: $text-main;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  
+  /* 🔥 SUMMARY */
+  .summary {
+    font-size: 11px;
+    color: $text-secondary;
+    line-height: 1.4;
+  
+    display: -webkit-box;
+    -webkit-line-clamp: 3; // 🔥 3 line limit
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  /* 🔥 TAGS */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  
+  .tag {
+    background: rgba(255, 77, 90, 0.1);
+    color: $primary;
+    padding: 3px 8px;
+    font-size: 10px;
+    border-radius: 6px;
+  }
+  
+  /* 🔥 SOURCE BUTTON */
+  .source-btn {
+    margin-top: auto;
+    width: 100%;
+    background: rgba(255, 77, 90, 0.1);
+    color: $primary;
+    border: 1px solid rgba(255, 77, 90, 0.3);
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+  
+    &:hover {
+      background: $primary;
+      color: #fff;
+    }
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  /* 🔥 MINI BUTTON BASE */
+  .mini-btn {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.05);
+    color: $text-main;
+    cursor: pointer;
+    transition: 0.2s ease;
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  /* ❌ DELETE */
+  .mini-btn.delete {
+    border-color: #ff4d5a;
+    color: #ff4d5a;
+  
+    &:hover {
+      background: rgba(255, 77, 90, 0.15);
+    }
+  }
+  
+  /* 📦 ARCHIVE */
+  .mini-btn.archive {
+    border-color: #4da6ff;
+    color: #4da6ff;
+  
+    &:hover {
+      background: rgba(77, 166, 255, 0.15);
+    }
+  }

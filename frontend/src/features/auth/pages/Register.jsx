@@ -5,23 +5,17 @@ import { registerApi } from "../services/auth.api";
 const Register = () => {
   const navigate = useNavigate();
 
-  // ✅ States
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState(null);
 
-  // 🔥 Toast function
   const showToast = (message, type) => {
     setToast({ message, type });
-
-    setTimeout(() => {
-      setToast(null);
-    }, 2000);
+    setTimeout(() => setToast(null), 2000);
   };
 
-  // 🔥 Register Handler
   const handleRegister = async (e) => {
     e.preventDefault();
 
@@ -33,29 +27,24 @@ const Register = () => {
     try {
       setLoading(true);
 
-      // ✅ API call with await
-      const data = await registerApi({
+      await registerApi({
         username: name,
         email,
         password,
       });
 
-      // ✅ Save token (auto login)
-      localStorage.setItem("token", data.token);
+      // ❌ REMOVE THIS
+      // localStorage.setItem("token", data.token);
 
       showToast("Account Created 🎉", "success");
 
-      // ✅ Direct redirect to home
       setTimeout(() => {
-        navigate("/");
+        navigate("/"); // ✅ cookie already set
       }, 1200);
 
     } catch (err) {
-      console.log("ERROR:", err);
-
       const message =
-        err.response?.data?.message ||
-        "User already exists";
+        err.response?.data?.message || "User already exists";
 
       showToast(message, "error");
 
@@ -66,8 +55,6 @@ const Register = () => {
 
   return (
     <div className="auth">
-
-      {/* 🔥 TOAST */}
       {toast && (
         <div className={`toast toast--${toast.type}`}>
           {toast.message}
@@ -106,8 +93,7 @@ const Register = () => {
         </form>
 
         <p className="auth__switch">
-          Already have an account?{" "}
-          <Link to="/login">Login</Link>
+          Already have an account? <Link to="/login">Login</Link>
         </p>
       </div>
     </div>
