@@ -12,7 +12,7 @@ const Sidebar = () => {
     <div className="dashboard__sidebar">
       <div className="sidebar">
 
-        {/* 🔥 PROFILE */}
+     
         <div className="sidebar__profile">
           <img
             src={
@@ -28,7 +28,7 @@ const Sidebar = () => {
           <p className="streak">🔥 {streak ?? 0} days</p>
         </div>
 
-        {/* 🔥 ALL NAV BUTTONS */}
+        
         <div className="sidebar__main">
 
           <button
@@ -60,7 +60,7 @@ const Sidebar = () => {
           </button>
 
           <button
-            className={`nav-btn ${isActive("/graph") ? "active" : ""}`}  // ✅ corrected path
+            className={`nav-btn ${isActive("/graph") ? "active" : ""}`} 
             onClick={() => navigate("/graph")}
           >
             Graph
@@ -68,7 +68,7 @@ const Sidebar = () => {
 
         </div>
 
-        {/* 🔥 LOGOUT */}
+     
      <div className="sidebar__logout">
   <button
     className="logout-btn"
@@ -76,13 +76,13 @@ const Sidebar = () => {
       try {
         await fetch("/api/auth/logout", {
           method: "POST",
-          credentials: "include" // 🔥 VERY IMPORTANT
+          credentials: "include" 
         });
       } catch (err) {
         console.log(err);
       }
 
-      navigate("/login"); // redirect after logout
+      navigate("/login"); 
     }}
   >
     Logout

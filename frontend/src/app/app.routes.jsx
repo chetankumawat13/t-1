@@ -7,13 +7,13 @@ import ProtectedRoute from "./ProtectedRoute";
 import Archive from "../features/items/pages/Archive";
 import AllSaves from "../features/items/pages/AllSaves";
 import RecentlyDeleted from "../features/items/pages/RecentlyDeleted";
-import GraphPage from "../features/items/pages/GraphPage"; // ✅ GraphPage import
+import GraphPage from "../features/items/pages/GraphPage"; 
 
 const AppRoutes = () => {
   return (
     <Routes>
 
-      {/* 🔥 PROTECTED LAYOUT */}
+     
       <Route
         path="/"
         element={
@@ -22,12 +22,12 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       >
-        {/* ✅ NESTED ROUTES */}
+        
         <Route index element={<AllSaves />} />
         <Route path="saves" element={<AllSaves />} />
         <Route path="deleted" element={<RecentlyDeleted />} />
         <Route path="archive" element={<Archive />} />
-        <Route path="graph" element={<GraphPage />} /> {/* ✅ Graph route */}
+        <Route path="graph" element={<GraphPage />} /> 
       </Route>
 
       {/* PUBLIC */}

@@ -33,13 +33,12 @@ const Register = () => {
         password,
       });
 
-      // ❌ REMOVE THIS
-      // localStorage.setItem("token", data.token);
+     
 
       showToast("Account Created 🎉", "success");
 
       setTimeout(() => {
-        navigate("/"); // ✅ cookie already set
+        navigate("/"); 
       }, 1200);
 
     } catch (err) {

@@ -13,7 +13,7 @@ export const transformTags = (items) => {
       map[tag]++;
     });
   
-    // 🔥 convert to array for chart
+
     return Object.entries(map).map(([tag, count]) => ({
       tag,
       count,

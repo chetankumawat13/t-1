@@ -4,7 +4,7 @@ export const transformTimeline = (items) => {
     items.forEach((item) => {
       if (!item.createdAt || !item.hotTag) return;
   
-      // 📅 date format
+     
       const date = new Date(item.createdAt).toLocaleDateString("en-GB", {
         day: "numeric",
         month: "short",
@@ -12,12 +12,12 @@ export const transformTimeline = (items) => {
   
       const tag = item.hotTag.toLowerCase();
   
-      // 🧠 init date object
+     
       if (!map[date]) {
         map[date] = { date };
       }
   
-      // 🔥 count increase
+   
       if (!map[date][tag]) {
         map[date][tag] = 0;
       }
@@ -25,6 +25,6 @@ export const transformTimeline = (items) => {
       map[date][tag]++;
     });
   
-    // 📦 convert object → array
+  
     return Object.values(map);
   };

@@ -7,17 +7,17 @@ import { transformTimeline } from "../utils/transformTimeline";
 import { transformTags } from "../utils/transformTags";
 import { transformSocial } from "../utils/transformSocial";
 
-// 🔥 FIXED STREAK CALCULATOR
+
 const calculateStreak = (items) => {
   if (!items || items.length === 0) return 0;
 
-  // 📅 Normalize dates (remove time)
+
   const dates = items.map((item) => {
     const d = new Date(item.createdAt);
     return new Date(d.getFullYear(), d.getMonth(), d.getDate());
   });
 
-  // 🧹 Unique + sorted dates
+
   const uniqueDates = [...new Set(dates.map((d) => d.getTime()))]
     .map((t) => new Date(t))
     .sort((a, b) => b - a);
@@ -40,7 +40,7 @@ const calculateStreak = (items) => {
 
     if (diff === 0 || diff === 1) {
       streak++;
-      current = new Date(d); // ✅ safe copy
+      current = new Date(d); 
     } else {
       break;
     }
@@ -52,22 +52,20 @@ const calculateStreak = (items) => {
 export const useAnalytics = () => {
   const { items, loading } = useItems();
 
-  // 🔥 USER STATE
   const [user, setUser] = useState(null);
 
-  // 🔥 FILTER STATES
+
   const [time, setTime] = useState("all");
   const [tag, setTag] = useState("all");
   const [social, setSocial] = useState("all");
 
-  // ✅ FETCH USER
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const res = await API.get("/auth/getUser");
         setUser(res.data.user);
       } catch (err) {
-        console.log("❌ User fetch error:", err.response?.data || err.message);
+        console.log(" User fetch error:", err.response?.data || err.message);
         setUser(null);
       }
     };
@@ -75,14 +73,14 @@ export const useAnalytics = () => {
     fetchUser();
   }, []);
 
-  // 🔥 FILTERED ITEMS
+ 
   const filteredItems = useMemo(() => {
     if (!items) return [];
 
     let data = [...items];
     const now = new Date();
 
-    // ⏳ TIME FILTER
+
     if (time !== "all") {
       data = data.filter((item) => {
         const d = new Date(item.createdAt);

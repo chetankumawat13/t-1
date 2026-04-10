@@ -1,14 +1,14 @@
 export const calculateStreak = (items) => {
     if (!items || items.length === 0) return 0;
   
-    // 🔥 all dates (only date part)
+  
     const dates = items.map((item) =>
       new Date(item.createdAt).toLocaleDateString()
     );
   
     const uniqueDates = [...new Set(dates)];
   
-    // 🔥 sort latest first
+ 
     uniqueDates.sort((a, b) => new Date(b) - new Date(a));
   
     let streak = 0;

@@ -13,7 +13,7 @@ import { useAnalytics } from "../features/analytics/hooks/useAnalytics";
 const Dashboard = () => {
   const location = useLocation();
 
-  // 🔥 Home detect
+
   const isHome = location.pathname === "/";
 
   const {
@@ -37,16 +37,16 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
 
-      {/* 🔥 LEFT SIDEBAR (ALWAYS SAME) */}
+    
       <Sidebar />
 
-      {/* 🔥 RIGHT SIDE */}
+      {/*  RIGHT SIDE */}
       <div className="dashboard__main">
 
-        {/* 🔥 HEADER (ALWAYS SAME) */}
+        {/*  HEADER (ALWAYS SAME) */}
         <Header />
 
-        {/* 🔥 HOME PAGE (Analytics) */}
+        {/*  HOME PAGE (Analytics) */}
         {isHome && (
           <>
             {loading ? (
@@ -76,7 +76,7 @@ const Dashboard = () => {
           </>
         )}
 
-        {/* 🔥 OTHER PAGES (All Saves / Deleted) */}
+        {/*  OTHER PAGES (All Saves / Deleted) */}
         {!isHome && (
           <div className="dashboard__content">
             <Outlet />

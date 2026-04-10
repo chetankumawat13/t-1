@@ -28,8 +28,7 @@ const Login = () => {
 
       await loginApi({ email, password });
 
-      // ❌ REMOVE THIS
-      // localStorage.setItem("token", data.token);
+   
 
       showToast("Login Successful 🎉", "success");
 

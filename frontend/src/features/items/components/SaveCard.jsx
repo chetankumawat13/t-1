@@ -13,14 +13,14 @@ const SaveCard = ({ item, onDelete, onArchive, onRestore, isDeletedView, isArchi
   return (
     <div className="save-card">
 
-      {/* 🔥 THUMBNAIL */}
+      {/*  THUMBNAIL */}
       <img
         src={item.thumbnail || "https://ik.imagekit.io/ad6av31ld/default-thumbnail.jpg"}
         alt="thumb"
         className="save-card__img"
       />
 
-      {/* 🔥 CONTENT */}
+      {/*  CONTENT */}
       <div className="save-card__body">
 
         {item.hotTag && <span className="hot-tag">{item.hotTag}</span>}
@@ -38,7 +38,7 @@ const SaveCard = ({ item, onDelete, onArchive, onRestore, isDeletedView, isArchi
         </button>
 
         <div className="card-actions">
-          {/* 💾 Normal All Saves */}
+          {/*  Normal All Saves */}
           {!isDeletedView && !isArchiveView && (
             <>
               <button className="mini-btn delete" onClick={() => onDelete?.(item._id)}>Delete</button>
@@ -54,7 +54,7 @@ const SaveCard = ({ item, onDelete, onArchive, onRestore, isDeletedView, isArchi
             </>
           )}
 
-          {/* 📦 Archive */}
+          {/*  Archive */}
           {isArchiveView && (
             <>
               <button className="mini-btn restore" onClick={() => onRestore?.(item._id)}>Unarchive</button>

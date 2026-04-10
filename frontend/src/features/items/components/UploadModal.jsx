@@ -10,7 +10,7 @@ const UploadModal = ({ isOpen, onClose }) => {
 
     console.log("FILE 👉", file);
 
-    // 👉 later API call
+   
     onClose();
   };
 

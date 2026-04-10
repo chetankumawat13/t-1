@@ -4,7 +4,7 @@ import { createItemApi } from "../services/iteamApi.js";
 
 const AddSave = ({ onSaved }) => {
   const [url, setUrl] = useState("");
-  const [type, setType] = useState("url"); // matches backend
+  const [type, setType] = useState("url"); 
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -21,7 +21,7 @@ const AddSave = ({ onSaved }) => {
       setUrl("");
       setType("url");
 
-      if (onSaved) onSaved(); // 🔥 refresh parent immediately
+      if (onSaved) onSaved(); 
     } catch (err) {
       console.error("Error saving item:", err);
       alert(err.response?.data?.message || "Failed to save item");

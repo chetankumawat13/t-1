@@ -1,18 +1,18 @@
 import API from "../../../app/axios";
 
-// 🔥 LOGIN
+//  LOGIN
 export const loginApi = async (data) => {
   const res = await API.post("/auth/login", data);
   return res.data;
 };
 
-// 🔥 REGISTER
+//  REGISTER
 export const registerApi = async (data) => {
   const res = await API.post("/auth/register", data);
   return res.data;
 };
 
-// 🔥 LOGOUT
+//  LOGOUT
 export const logoutApi = async () => {
   const res = await API.post("/auth/logout");
   return res.data;

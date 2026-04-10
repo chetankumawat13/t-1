@@ -2,14 +2,13 @@ import userModel from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-// 🔥 COMMON COOKIE OPTIONS
 const cookieOptions = {
-  httpOnly: true,              // 🔐 secure (JS access nahi kar sakta)
-  sameSite: "lax",             // frontend-backend same origin
-  maxAge: 24 * 60 * 60 * 1000, // ⏳ 1 day expiry
+  httpOnly: true,              
+  sameSite: "lax",            
+  maxAge: 24 * 60 * 60 * 1000, 
 };
 
-// 🔥 REGISTER
+
 export async function registerController(req, res) {
   const { username, email, password, avatar } = req.body;
   console.log(req.body);
@@ -46,7 +45,7 @@ export async function registerController(req, res) {
     }
   );
 
-  // ✅ UPDATED COOKIE
+  
   res.cookie("token", token, cookieOptions);
 
   res.status(201).json({
@@ -61,7 +60,7 @@ export async function registerController(req, res) {
   });
 }
 
-// 🔥 LOGIN
+
 export async function loginController(req, res) {
   const { email, password } = req.body;
 
@@ -95,7 +94,7 @@ export async function loginController(req, res) {
     }
   );
 
-  // ✅ UPDATED COOKIE
+
   res.cookie("token", token, cookieOptions);
 
   res.status(200).json({
@@ -110,7 +109,7 @@ export async function loginController(req, res) {
   });
 }
 
-// 🔥 GET USER
+
 export async function getUserController(req, res) {
   const user = await userModel.findById(req.user.id);
 

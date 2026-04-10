@@ -1,16 +1,16 @@
 import { ChatMistralAI } from "@langchain/mistralai";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 
-// 🔥 Load environment variables
+
 import dotenv from "dotenv";
-dotenv.config(); // ensure this is at top of file
+dotenv.config(); 
 
 const model = new ChatMistralAI({
-  apiKey: process.env.MISTRAL_API_KEY, // ✅ use .env key
+  apiKey: process.env.MISTRAL_API_KEY,
   model: "mistral-small-latest",
 });
 
-// 🔥 NORMALIZERS
+
 const normalizeSource = (src) => {
   if (!src) return "Other";
 
@@ -33,7 +33,7 @@ const normalizeHotTag = (tag) => {
   return tag ? tag.toLowerCase().trim() : "general";
 };
 
-// 🔥 MAIN FUNCTION
+
 export async function generateSummaryTagsAndSource(text) {
   try {
     const response = await model.invoke([
@@ -69,7 +69,7 @@ Return ONLY JSON
 
     let content = response.content;
 
-    // 🔥 clean AI response
+   
     content = content.replace(/```json|```/g, "").trim();
 
     const parsed = JSON.parse(content);

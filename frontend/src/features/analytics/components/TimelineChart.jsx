@@ -9,7 +9,7 @@ import {
 import { useState } from "react";
 import { useAnalytics } from "../hooks/useAnalytics";
 
-// 🎨 color system
+
 const tagColors = {};
 const colors = [
   "#FF4D5A",
@@ -62,13 +62,13 @@ const CustomTooltip = ({ active, payload, label }) => {
 const TimelineChart = () => {
   const [range, setRange] = useState(15);
 
-  // 🔥 REAL DATA
+ 
   const { timelineData, loading } = useAnalytics();
 
-  // 🔥 last N days
+ 
   const data = timelineData.slice(-range);
 
-  // 🔥 dynamic tags
+ 
   const allTags = Array.from(
     new Set(data.flatMap((d) => Object.keys(d).filter((k) => k !== "date")))
   );
@@ -78,7 +78,7 @@ const TimelineChart = () => {
   return (
     <div className="timeline">
 
-      {/* HEADER */}
+      
       <div className="timeline__header">
         <h3>Tag Timeline</h3>
 
@@ -92,7 +92,7 @@ const TimelineChart = () => {
         </select>
       </div>
 
-      {/* CHART */}
+   
       <div style={{ width: "100%", height: 300 }}>
         <ResponsiveContainer>
           <BarChart data={data}>
@@ -117,7 +117,7 @@ const TimelineChart = () => {
         </ResponsiveContainer>
       </div>
 
-      {/* LEGEND */}
+     
       <div className="timeline__legend">
         {allTags.map((tag, index) => (
           <div key={tag} className="legend__item">

@@ -1,4 +1,4 @@
-// models/Item.js
+
 
 import mongoose from "mongoose";
 
@@ -8,7 +8,7 @@ const itemSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
-      index: true, // 🔥 faster queries
+      index: true, 
     },
 
     type: {
@@ -41,7 +41,6 @@ const itemSchema = new mongoose.Schema(
       index: true,
     },
 
-    // 🔥 MAIN ANALYTICS FIELD
     hotTag: {
       type: String,
       default: "general",
@@ -50,7 +49,7 @@ const itemSchema = new mongoose.Schema(
       index: true,
     },
 
-    // 🔥 SOURCE FIELD
+   
     source: {
       type: String,
       default: "other",
@@ -59,13 +58,13 @@ const itemSchema = new mongoose.Schema(
       index: true,
     },
 
-    // 🖼 Thumbnail (future use)
+
     thumbnail: {
       type: String,
       default: null,
     },
 
-    // 🔥 SOFT DELETE SYSTEM
+  
     isDeleted: {
       type: Boolean,
       default: false,
@@ -77,7 +76,7 @@ const itemSchema = new mongoose.Schema(
       default: null,
     },
 
-    // 📦 ARCHIVE SYSTEM
+  
     isArchived: {
       type: Boolean,
       default: false,
@@ -90,7 +89,7 @@ const itemSchema = new mongoose.Schema(
 );
 
 
-// ⚡ COMPOUND INDEX (SUPER IMPORTANT FOR PERFORMANCE)
+
 itemSchema.index({ userId: 1, isDeleted: 1, isArchived: 1 });
 itemSchema.index({ userId: 1, createdAt: -1 });
 

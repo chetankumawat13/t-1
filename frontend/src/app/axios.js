@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://t-1-3vkj.onrender.com/api",
-  withCredentials: true, // 🔥 MOST IMPORTANT (cookie send karega)
+  baseURL: "http://localhost:3000/api",
+  withCredentials: true,
 });
 
 export default API;

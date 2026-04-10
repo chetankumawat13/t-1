@@ -14,7 +14,7 @@ export const semanticSearch = async (req, res) => {
       isArchived: { $ne: true },
     });
 
-    // 🔥 FIXED: simple case-insensitive substring match
+
     const results = items.filter((item) => {
       const text = `${item.title ?? ""} ${item.content ?? ""} ${
         item.tags?.join(" ") ?? ""

@@ -9,7 +9,6 @@ const GraphPage = () => {
   const [links, setLinks] = useState([]);
   const [hoveredItem, setHoveredItem] = useState(null);
 
-  // ✅ NEW: tooltip position
   const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -106,7 +105,7 @@ const GraphPage = () => {
             d.fy = null;
           })
       )
-      // ✅ HOVER + MOUSE MOVE
+   
       .on("mouseover", (event, d) => {
         setHoveredItem(d.items?.[0]);
       })
@@ -171,7 +170,7 @@ const GraphPage = () => {
           style={{ border: "1px solid #ccc" }}
         />
 
-        {/* ✅ TOOLTIP CARD */}
+       
         {hoveredItem && (
           <div
             style={{

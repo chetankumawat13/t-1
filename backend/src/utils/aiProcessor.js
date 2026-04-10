@@ -10,20 +10,20 @@ export async function processItem(itemId) {
 
     const text = `${item.title || ""} ${item.content || ""}`;
 
-    // 🤖 AI CALL
+
     const aiData = await generateSummaryTagsAndSource(text);
 
-    // 🔥 SOURCE DETECTION (NON-AI)
+  
     const source = detectSource(item.url);
 
     await Item.findByIdAndUpdate(itemId, {
       summary: aiData.summary,
       tags: aiData.tags,
-      hotTag: aiData.hotTag,   // ✅ NEW
-      source: source,          // ✅ NEW
+      hotTag: aiData.hotTag,  
+      source: source,          
     });
 
-    console.log("✅ AI processed item");
+    console.log("AI processed item");
     console.log("AI DATA:", {
       ...aiData,
       source

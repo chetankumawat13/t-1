@@ -3,7 +3,7 @@ import Item from "../models/item.model.js";
 
 export const startCronJobs = () => {
 
-  // 🕑 Daily run at 2 AM
+
   cron.schedule("0 2 * * *", async () => {
     console.log("🧹 Running auto-delete cron job...");
 
@@ -16,9 +16,9 @@ export const startCronJobs = () => {
         deletedAt: { $lte: cutoffDate },
       });
 
-      console.log(`✅ Deleted ${result.deletedCount} items older than 30 days`);
+      console.log(` Deleted ${result.deletedCount} items older than 30 days`);
     } catch (error) {
-      console.error("❌ Cron Job Error:", error);
+      console.error(" Cron Job Error:", error);
     }
   });
 

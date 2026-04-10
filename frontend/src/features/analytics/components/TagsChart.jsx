@@ -9,7 +9,7 @@ import {
 
 import { useAnalytics } from "../hooks/useAnalytics";
 
-// 🔥 CUSTOM TOOLTIP
+
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     const data = payload[0];
@@ -38,7 +38,7 @@ const TagsChart = () => {
           margin={{ top: 10, right: 10, left: 0, bottom: 20 }}
         >
           
-          {/* 🔥 CLEAN X AXIS */}
+         
           <XAxis
             dataKey="tag"
             stroke="#cfcfcf"
@@ -50,7 +50,7 @@ const TagsChart = () => {
 
           <YAxis stroke="#cfcfcf" />
 
-          {/* 🔥 CUSTOM TOOLTIP */}
+        
           <Tooltip content={<CustomTooltip />} />
 
           <Bar

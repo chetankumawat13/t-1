@@ -8,7 +8,7 @@ import {
 
 import { useAnalytics } from "../hooks/useAnalytics";
 
-// 🎨 COLORS
+
 const COLORS = ["#FF4D5A", "#4DA6FF", "#FFD166", "#06D6A0", "#7209B7"];
 
 const SocialChart = () => {
@@ -19,7 +19,6 @@ const SocialChart = () => {
   return (
     <div className="social-chart">
       
-      {/* GRAPH */}
       <div className="social-chart__graph">
         <ResponsiveContainer width="100%" height={220}>
           <PieChart>
@@ -38,7 +37,7 @@ const SocialChart = () => {
         </ResponsiveContainer>
       </div>
 
-      {/* LEGEND */}
+    
       <div className="social-chart__legend">
         {socialData.map((item, index) => (
           <div key={index} className="legend__item">
